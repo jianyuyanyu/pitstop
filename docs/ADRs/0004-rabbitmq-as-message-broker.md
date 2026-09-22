@@ -1,4 +1,4 @@
-# ADR-0003: RabbitMQ as Message Broker
+# ADR-0004: RabbitMQ as Message Broker
 
 ## Status
 Accepted

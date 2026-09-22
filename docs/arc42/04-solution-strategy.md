@@ -5,8 +5,8 @@
 | Decision | Rationale |
 |----------|-----------|
 | **Microservices architecture** | Demonstrates decomposition, independent deployability, per-service data ownership, and eventual consistency. See [ADR-0001](../ADRs/0001-microservices-architecture.md). |
-| **.NET / ASP.NET Core** | Author's expertise; single-stack keeps the solution accessible to .NET developers. See [ADR-0002](../ADRs/0002-dotnet-as-implementation-platform.md). |
-| **RabbitMQ** | Push-based event notification with queue semantics; simpler than Kafka for the educational scope. See [ADR-0003](../ADRs/0003-rabbitmq-as-message-broker.md). |
+| **.NET / ASP.NET Core** | Author's expertise; single-stack keeps the solution accessible to .NET developers. See [ADR-0003](../ADRs/0003-dotnet-as-implementation-platform.md). |
+| **RabbitMQ** | Push-based event notification with queue semantics; simpler than Kafka for the educational scope. See [ADR-0004](../ADRs/0004-rabbitmq-as-message-broker.md). |
 | **SQL Server** | Single database platform avoids polyglot-persistence complexity. See [ADR-0007](../ADRs/0007-sql-server-as-single-database-platform.md). |
 | **Docker / Kubernetes** | Containerisation is the standard deployment model. Kubernetes manifests enable orchestration demos. See [ADR-0010](../ADRs/0010-kubernetes-with-service-mesh.md). |
 
@@ -16,7 +16,7 @@
 |---------|---------------|---------|
 | **Event-Driven Architecture** | All services | Services communicate asynchronously through domain events published to RabbitMQ. This decouples services and enables eventual consistency. |
 | **Domain-Driven Design (DDD)** | WorkshopManagementAPI | The core bounded context uses Aggregates (`WorkshopPlanning`), value objects, and domain events to model complex business rules. |
-| **Event Sourcing** | WorkshopManagementAPI | The `WorkshopPlanning` aggregate persists its state as a sequence of domain events in a dedicated event store, rather than as current-state snapshots. See [ADR-0004](../ADRs/0004-event-sourcing-scoped-to-workshop-management.md). |
+| **Event Sourcing** | WorkshopManagementAPI | The `WorkshopPlanning` aggregate persists its state as a sequence of domain events in a dedicated event store, rather than as current-state snapshots. See [ADR-0002](../ADRs/0002-polyglot-design-per-microservice.md). |
 | **CQRS** | WorkshopManagementAPI | Commands are transformed into events that modify the aggregate; a separate read-model is built by the WorkshopManagementEventHandler for query purposes. |
 | **CRUD** | CustomerManagementAPI, VehicleManagementAPI | Supporting bounded contexts with simple lifecycle; Entity Framework Core with code-first migrations. |
 | **Messaging Abstraction** | Infrastructure.Messaging library | `IMessagePublisher` and `IMessageHandler` interfaces decouple all services from the concrete broker implementation. See [ADR-0009](../ADRs/0009-infrastructure-messaging-abstraction.md). |

@@ -4,10 +4,10 @@
 
 | Constraint | Description |
 |------------|-------------|
-| **.NET / C#** | All services are implemented in .NET and C#. This keeps the solution accessible to the target audience (.NET developers) and enables shared libraries via NuGet. See [ADR-0002](../ADRs/0002-dotnet-as-implementation-platform.md). |
+| **.NET / C#** | All services are implemented in .NET and C#. This keeps the solution accessible to the target audience (.NET developers) and enables shared libraries via NuGet. See [ADR-0003](../ADRs/0003-dotnet-as-implementation-platform.md). |
 | **Docker** | Every service and all infrastructure components run as Linux Docker containers. Docker Compose is the primary local orchestration tool. |
 | **SQL Server** | A single SQL Server instance is used as the database platform for all services. This is a deliberate simplification; production deployments would use separate instances. See [ADR-0007](../ADRs/0007-sql-server-as-single-database-platform.md). |
-| **RabbitMQ** | RabbitMQ is the sole message broker for all asynchronous inter-service communication. See [ADR-0003](../ADRs/0003-rabbitmq-as-message-broker.md). |
+| **RabbitMQ** | RabbitMQ is the sole message broker for all asynchronous inter-service communication. See [ADR-0004](../ADRs/0004-rabbitmq-as-message-broker.md). |
 
 ## 2.2 Organisational Constraints
 
